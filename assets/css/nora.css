@@ -156,3 +156,10 @@ img, video { max-width: 100%; }
 .wide-fig img { display: block; width: 100%; height: auto; border-radius: 20px; background: #EFEADD; }
 .wide-fig figcaption { font-size: 14px; line-height: 1.5; color: var(--grey); text-align: center; }
 @media (max-width: 1180px) { .wide-fig { width: 100%; } }
+
+/* hero: <human /> in coral, typing loop */
+.human-tag { white-space: nowrap; color: var(--coral-ink); }
+.typed { display: inline-block; min-width: 5ch; text-align: left; }
+.type-caret { display: inline-block; width: 0.08em; height: 0.9em; margin-left: 0.04em; vertical-align: -0.08em; background: var(--coral-ink); animation: blink 1s steps(1) infinite; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+@media (prefers-reduced-motion: reduce) { .type-caret { display: none; } }

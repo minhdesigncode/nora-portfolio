@@ -51,3 +51,21 @@
     set();
   }
 })();
+
+// hero: type "human", pause, erase, repeat
+(function () {
+  var el = document.querySelector('.typed');
+  if (!el || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var word = el.dataset.word, i = word.length, typing = false;
+  function step() {
+    if (typing) {
+      i++; el.textContent = word.slice(0, i);
+      if (i >= word.length) { typing = false; return setTimeout(step, 2200); }
+      return setTimeout(step, 130);
+    }
+    i--; el.textContent = word.slice(0, i);
+    if (i <= 0) { typing = true; return setTimeout(step, 450); }
+    setTimeout(step, 70);
+  }
+  setTimeout(step, 2600);
+})();
