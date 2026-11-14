@@ -1,6 +1,6 @@
 # nora-portfolio
 
-Portfolio of Minh (Nora) Nguyen, product designer. Plain static HTML, CSS and JS, deployed on Vercel.
+Portfolio of Minh (Nora) Nguyen, product designer. Live at https://nora-des-portfolio.vercel.app. Plain static HTML, CSS and JS, deployed on Vercel.
 
 - `/` the exhibition: a sideways-scrolling home page (stacks vertically on phones)
 - `/coco/`, `/dynatax/`, `/zalo/`, `/pocketplus/` case studies with a section navigator
