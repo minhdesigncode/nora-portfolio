@@ -113,3 +113,30 @@
   // never trap anyone behind the loader
   setTimeout(function () { if (root.classList.contains('loading')) { p = 100; paint(); clearInterval(t); finish(); } }, 8000);
 })();
+
+// Falling illustrations in the contact panel: start once the panel is in view
+(function () {
+  var sec = document.getElementById('contact'), cv = sec && sec.querySelector('.pile');
+  if (!sec || !cv || typeof startFlowerPile !== 'function') return;
+  var b = '/assets/img/brand/', srcs = [
+    'flower-coral', 'note-cream', 'flower-lime', 'guitar-lime', 'flower-cream', 'clock-cream',
+    'flower-coral', 'cap-lime', 'notes-cream', 'flower-lime', 'note-lime', 'guitar-cream',
+    'flower-cream', 'clock-lime', 'cap-cream', 'notes-lime'
+  ].map(function (n) { return b + n + '.svg'; });
+  var small = function () { return window.innerWidth < 860; };
+  var started = false;
+  function go() {
+    if (started) return; started = true;
+    startFlowerPile(cv, srcs, {
+      host: sec, count: 36, gap: 200,
+      region: function () { return small() ? [0.45, 1] : [0.66, 1]; },
+      minR: function () { return small() ? 18 : 26; },
+      maxR: function () { return small() ? 28 : 42; }
+    });
+  }
+  if (!('IntersectionObserver' in window)) return go();
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { go(); io.disconnect(); } });
+  }, { threshold: 0.45 });
+  io.observe(sec);
+})();
