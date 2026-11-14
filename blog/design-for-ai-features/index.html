@@ -1,90 +1,32 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Design for AI Features</title>
-<link rel="icon" type="image/webp" href="https://framerusercontent.com/images/r7KOQmPMssjx5nrZ70GzcocD2E8.webp?width=64&amp;height=64">
-<link rel="apple-touch-icon" href="https://framerusercontent.com/images/r7KOQmPMssjx5nrZ70GzcocD2E8.webp?width=180&amp;height=180">
+<title>Design for AI features: when AI is not just a chat, a note by Nora</title>
 <meta name="description" content="When AI features are not just chats: six patterns for designing AI into products, lessons from Amazon and Perplexity, and a checklist for designers.">
+<link rel="icon" href="/assets/img/brand/flower-coral.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-:root{
-  /* Same system as the landing page: single reading column, mono meta */
-  --bg:#fafaf9;
-  --surface:#ffffff;
-  --ink:#141414;
-  --muted:#6b6b6b;
-  --line:#e7e5e2;
-  --accent:#d0342c;
-  --font-body:"Geist", "Segoe UI", system-ui, sans-serif;
-  --font-mono:"Geist Mono", ui-monospace, "SFMono-Regular", monospace;
-  color-scheme:light;
-}
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){--bg:#111111;--surface:#191919;--ink:#f2f2f0;--muted:#9a9a96;--line:#2a2a28;--accent:#ff5a4f;color-scheme:dark}
-}
-:root[data-theme="dark"]{--bg:#111111;--surface:#191919;--ink:#f2f2f0;--muted:#9a9a96;--line:#2a2a28;--accent:#ff5a4f;color-scheme:dark}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:18px;line-height:1.7;-webkit-font-smoothing:antialiased}
-a{color:inherit}
-a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
-img{max-width:100%;height:auto;display:block}
-.col{width:min(680px,100% - 32px);margin-inline:auto}
-.wide{width:min(960px,100% - 32px);margin-inline:auto}
-
-.nav{border-bottom:1px solid var(--line)}
-.nav .col{display:flex;align-items:center;justify-content:space-between;height:60px;font-size:14px}
-.nav a{text-decoration:none;color:var(--muted)}
-.nav a:hover{color:var(--ink)}
-.nav .brand{color:var(--ink);font-weight:600}
-
-header{padding:64px 0 36px}
-.meta{font-family:var(--font-mono);font-size:12px;color:var(--muted);display:flex;gap:14px;flex-wrap:wrap;margin-bottom:18px}
-.meta span{font-variant-numeric:tabular-nums}
-h1{font-size:clamp(32px,5.4vw,50px);line-height:1.08;letter-spacing:-0.03em;font-weight:600;margin:0;text-wrap:balance}
-h1 q{quotes:"\201C" "\201D"}
-.dek{font-size:20px;color:var(--muted);margin:18px 0 0}
-
-figure{margin:12px auto 44px}
-figure img{border-radius:14px;border:1px solid var(--line)}
-figcaption{font-size:14px;color:var(--muted);margin-top:12px;text-align:center}
-
-article p{margin:0 0 24px;text-wrap:pretty}
-article .lead::first-letter{font-size:3.1em;float:left;line-height:.9;font-weight:600;margin:6px 10px 0 0;color:var(--accent)}
-article h2{font-size:22px;font-weight:600;letter-spacing:-0.015em;margin:40px 0 12px}
-.cmp{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 24px}.cmp div{border-radius:12px;padding:12px 14px;font-size:15px;line-height:1.5;color:#1b1b1b}.cmp .pro{background:#e6f6e8}.cmp .con{background:#fde8e8}.cmp b{display:block;font-size:12px;font-family:var(--font-mono);font-weight:500;margin-bottom:4px}
-article h3{font-size:19px;font-weight:600;margin:32px 0 8px;letter-spacing:-0.01em}
-.check{list-style:none;padding:0;margin:0 0 24px}.check li{padding:10px 0 10px 30px;border-top:1px solid var(--line);position:relative}.check li::before{content:"?";position:absolute;left:4px;top:10px;font-weight:700;color:var(--accent)}
-@media (max-width:560px){.cmp{grid-template-columns:1fr}}
-blockquote{margin:36px 0;padding:4px 0 4px 22px;border-left:3px solid var(--accent);font-size:22px;line-height:1.45;font-weight:500;letter-spacing:-0.01em}
-
-.end{border-top:1px solid var(--line);margin-top:48px;padding:32px 0 72px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;font-size:15px}
-.end a{text-decoration:none;font-weight:500}
-.end a:hover{color:var(--accent)}
-article .lead::first-letter{font-size:inherit;float:none;margin:0;color:inherit;font-weight:inherit;line-height:inherit}
-article .lead{font-size:20px;color:var(--ink)}
-</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap">
+<link rel="stylesheet" href="/assets/css/nora.css">
 </head>
-<body>
-
-<nav class="nav" aria-label="Main">
-  <div class="col">
-    <a class="brand" href="../../">Minh (Nora) Nguyen</a>
-    <a href="/blog/">← All posts</a>
-  </div>
-</nav>
-
-<header class="col">
-  <div class="meta"><span>Nov 11, 2026</span><span>5 min read</span><span>#AI #productdesign #sharing</span></div>
-  <h1>Design for AI features: when AI is not just a chat</h1>
-  <p class="dek">Notes from a sharing session with fellow designers in our community: how to design AI into a product, and when not to.</p>
+<body class="post-page">
+<header class="topbar">
+  <a class="pill logo" href="/" aria-label="Nora, back to the exhibition"><img src="/assets/img/brand/flower-coral.svg" alt=""><span>Nora</span></a>
+  <nav class="pill navpill" aria-label="Site">
+    <a href="/#works">/works</a>
+    <a href="/blog/" aria-current="page">/blog</a>
+    <a class="btn-mini" href="/resume.pdf" target="_blank" rel="noopener">resume</a>
+  </nav>
 </header>
-
-<main>
-  <article>
+<main class="post">
+  <header class="post-head">
+    <p class="kicker">Nov 11, 2026  /  5 min read  /  #AI #productdesign #sharing</p>
+    <h1>Design for AI features: when AI is not just a chat</h1>
+    <p class="dek">Notes from a sharing session with fellow designers in our community: how to design AI into a product, and when not to.</p>
+  </header>
+  <article class="post-body">
     <figure class="wide"><img src="cover.jpg" width="1600" height="900" alt="Slide: Design for AI Features, when AI features are not just chats"><figcaption>The opening slide of my sharing session.</figcaption></figure>
 
     <div class="col">
@@ -172,12 +114,14 @@ article .lead{font-size:20px;color:var(--ink)}
       <p>I closed the session with a question I’ll leave with you too: what kind of AI feature is your team working on right now, and does it really need to be a chat?</p>
     </div>
   </article>
-
-  <div class="col end">
-    <a href="/blog/">← Back to all posts</a>
-    <a href="/">See my work →</a>
-  </div>
+  <footer class="post-end">
+    <div>
+      <p class="thanks">thanks for reading :D</p>
+      <a href="/blog/">all notes</a>
+    </div>
+    <a class="btn" href="/blog/i-used-to-hate-running/">next note →</a>
+  </footer>
 </main>
-
+<script src="/assets/js/nora.js" defer></script>
 </body>
 </html>

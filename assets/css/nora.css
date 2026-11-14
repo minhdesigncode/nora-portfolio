@@ -183,3 +183,49 @@ img, video { max-width: 100%; }
   .p-contact .mail { font-size: 22px; }
   .p-contact .deco { width: 150px; right: -36px; bottom: -40px; }
 }
+
+/* ---------- blog ---------- */
+.post, .notes { width: 100%; max-width: 1040px; margin: 0 auto; padding: 140px 40px 96px; }
+.post-head, .notes-head { max-width: 760px; margin: 0 auto 48px; display: flex; flex-direction: column; gap: 18px; }
+.post-head .kicker, .note .kicker { margin: 0; font-size: 13px; color: var(--grey); display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.post-head h1, .notes-head h1 { margin: 0; font-size: clamp(32px, 4vw, 48px); line-height: 1.1; font-weight: 700; letter-spacing: -0.05em; color: var(--forest); }
+.post-head h1 q { quotes: "“" "”"; }
+.post-head .dek, .notes-head .dek { margin: 0; font-size: 18px; line-height: 1.6; color: #2E2E2A; }
+.post-body .col { max-width: 680px; margin: 0 auto; }
+.post-body p { font-size: 16px; line-height: 1.85; color: #2E2E2A; margin: 0 0 22px; }
+.post-body p.lead { font-size: 18px; line-height: 1.75; color: var(--ink); }
+.post-body h2 { margin: 56px 0 18px; font-size: 26px; line-height: 1.2; font-weight: 700; letter-spacing: -0.045em; }
+.post-body h3 { margin: 36px 0 10px; font-size: 18px; line-height: 1.35; font-weight: 700; letter-spacing: -0.03em; }
+.post-body ul, .post-body ol { padding-left: 22px; margin: 0 0 22px; font-size: 16px; line-height: 1.8; color: #2E2E2A; }
+.post-body li { margin-bottom: 6px; }
+.post-body blockquote { margin: 36px 0; padding: 26px 30px; border-radius: 20px; background: var(--forest); color: var(--cream); font-size: 19px; line-height: 1.6; font-style: italic; }
+.post-body blockquote::before { content: "“"; display: block; font-size: 44px; line-height: .6; color: var(--lime); font-style: normal; margin-bottom: 8px; }
+.post-body figure.wide { margin: 40px auto; max-width: 960px; display: flex; flex-direction: column; gap: 12px; }
+.post-body figure.wide img { display: block; width: 100%; height: auto; border-radius: 20px; }
+.post-body figcaption { font-size: 13px; line-height: 1.5; color: var(--grey); text-align: center; }
+.post-body .duo-row { display: grid; grid-template-columns: 1.55fr 1fr; gap: 16px; align-items: start; }
+.post-body .cmp { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 0 0 22px; }
+.post-body .cmp > div { padding: 16px 18px; border-radius: 16px; border: 1.5px solid var(--ink); font-size: 14px; line-height: 1.65; }
+.post-body .cmp b { display: block; margin-bottom: 6px; font-size: 13px; }
+.post-body .cmp .pro { background: #E6F0EA; } .post-body .cmp .pro b { color: var(--forest); }
+.post-body .cmp .con { background: #FBE4DE; } .post-body .cmp .con b { color: #8A2E1C; }
+.post-end { max-width: 760px; margin: 96px auto 0; padding-top: 36px; border-top: 1.5px dashed var(--ink); display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; }
+.post-end .thanks { margin: 0 0 8px; font-size: 26px; font-weight: 700; letter-spacing: -0.045em; }
+.post-end > div a { font-size: 14px; color: var(--grey); }
+.notes-head .whoami { color: var(--forest); }
+.note-list { max-width: 960px; margin: 0 auto; display: flex; flex-direction: column; }
+.note { display: grid; grid-template-columns: minmax(0, 380px) minmax(0, 1fr); gap: 40px; align-items: center; padding: 40px 0; border-top: 1.5px dashed var(--ink); }
+.note:last-child { border-bottom: 1.5px dashed var(--ink); }
+.note-img img { display: block; width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 18px; transition: transform .4s ease; }
+.note-img:hover img { transform: rotate(-1deg) scale(1.01); }
+.note-copy { display: flex; flex-direction: column; gap: 12px; }
+.note h2 { margin: 0; font-size: 24px; line-height: 1.2; font-weight: 700; letter-spacing: -0.04em; }
+.note h2 a { text-decoration: none; }
+.note p { margin: 0; font-size: 15px; line-height: 1.7; color: var(--grey); }
+.note .more { align-self: flex-start; display: inline-flex; align-items: center; min-height: 44px; font-size: 15px; font-weight: 700; color: var(--forest); }
+.pin { display: inline-flex; align-items: center; min-height: 24px; padding: 0 10px; border-radius: 999px; background: var(--lime); color: var(--forest); font-weight: 700; font-size: 12px; }
+@media (max-width: 860px) {
+  .post, .notes { padding: 96px 20px 72px; }
+  .note { grid-template-columns: 1fr; gap: 18px; padding: 28px 0; }
+  .post-body .duo-row, .post-body .cmp { grid-template-columns: 1fr; }
+}
