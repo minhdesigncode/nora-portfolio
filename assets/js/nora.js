@@ -80,3 +80,36 @@
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') set(false); });
   document.addEventListener('click', function (e) { if (!e.target.closest('.navpill')) set(false); });
 })();
+
+// loading screen: first visit per session, follows the real page load
+(function () {
+  var root = document.documentElement, el = document.getElementById('loader');
+  if (!el || !root.classList.contains('loading')) return;
+  el.classList.add('show');
+  var pctEl = el.querySelector('.ld-pct'), bar = el.querySelector('.ld-bar i'), msg = el.querySelector('.ld-msg');
+  var msgs = ['watering the flowers', 'polishing the pixels', 'hanging the frames', 'almost there'];
+  var p = 0, loaded = document.readyState === 'complete', start = Date.now(), MIN = 1600;
+  window.addEventListener('load', function () { loaded = true; });
+  function paint() {
+    pctEl.textContent = String(p).padStart(3, '0') + '%';
+    bar.style.width = p + '%';
+    msg.textContent = msgs[Math.min(msgs.length - 1, Math.floor(p / 26))];
+  }
+  var t = setInterval(function () {
+    var cap = loaded && Date.now() - start > MIN ? 100 : 90;
+    p = Math.min(cap, p + Math.max(1, Math.round((cap - p) * 0.08 + Math.random() * 2)));
+    paint();
+    if (p >= 100) { clearInterval(t); finish(); }
+  }, 90);
+  function finish() {
+    el.classList.add('done');
+    setTimeout(function () {
+      el.classList.add('out');
+      root.classList.remove('loading');
+      try { sessionStorage.setItem('nora-loaded', '1'); } catch (e) {}
+      setTimeout(function () { el.remove(); }, 800);
+    }, 1100);
+  }
+  // never trap anyone behind the loader
+  setTimeout(function () { if (root.classList.contains('loading')) { p = 100; paint(); clearInterval(t); finish(); } }, 8000);
+})();

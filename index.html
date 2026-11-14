@@ -13,8 +13,22 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap">
 <link rel="stylesheet" href="/assets/css/nora.css">
+<script>try{if(!sessionStorage.getItem('nora-loaded'))document.documentElement.classList.add('loading')}catch(e){}</script>
 </head>
 <body class="home">
+<div class="loader" id="loader">
+  <div class="loader-stage" aria-hidden="true">
+    <div class="ld-orbit"><img class="ld-spin-r" src="/assets/img/brand/flower-forest.svg" alt=""></div>
+    <div class="ld-orbit ld-orbit-2"><img class="ld-spin-r" src="/assets/img/brand/flower-lime.svg" alt=""></div>
+    <img class="ld-main" src="/assets/img/brand/flower-coral.svg" alt="">
+  </div>
+  <div class="ld-status" role="status" aria-live="polite">
+    <div class="ld-row"><p class="ld-msg">watering the flowers</p><p class="ld-pct">000%</p></div>
+    <div class="ld-bar" aria-hidden="true"><i></i></div>
+  </div>
+  <p class="ld-welcome" aria-hidden="true">welcome in :D</p>
+  <p class="ld-cmd">$ nora --open exhibition</p>
+</div>
 <header class="topbar">
   <a class="pill logo" href="#hello" aria-label="Nora, back to start"><img src="/assets/img/brand/flower-coral.svg" alt=""><span>Nora</span></a>
   <nav class="pill navpill" aria-label="Main navigation">
