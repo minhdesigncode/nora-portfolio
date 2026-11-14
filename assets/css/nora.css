@@ -229,3 +229,9 @@ img, video { max-width: 100%; }
   .note { grid-template-columns: 1fr; gap: 18px; padding: 28px 0; }
   .post-body .duo-row, .post-body .cmp { grid-template-columns: 1fr; }
 }
+
+/* text next to an image (Zalo challenge, persona) */
+.side-by-side { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 36px; align-items: center; }
+.sbs-copy { display: flex; flex-direction: column; gap: 18px; }
+.sbs-img { display: block; width: 100%; max-width: 340px; height: auto; justify-self: center; }
+@media (max-width: 860px) { .side-by-side { grid-template-columns: 1fr; } .sbs-img { max-width: 260px; } }
