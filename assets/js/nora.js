@@ -69,3 +69,14 @@
   }
   setTimeout(step, 2600);
 })();
+
+// small-screen menu
+(function () {
+  var btn = document.querySelector('.menu-btn'), links = document.getElementById('navlinks');
+  if (!btn || !links) return;
+  function set(open) { links.classList.toggle('open', open); btn.setAttribute('aria-expanded', open ? 'true' : 'false'); btn.textContent = open ? 'close' : 'menu'; }
+  btn.addEventListener('click', function () { set(!links.classList.contains('open')); });
+  links.addEventListener('click', function (e) { if (e.target.closest('a')) set(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') set(false); });
+  document.addEventListener('click', function (e) { if (!e.target.closest('.navpill')) set(false); });
+})();
