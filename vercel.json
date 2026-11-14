@@ -1,0 +1,11 @@
+{
+  "cleanUrls": true,
+  "redirects": [
+    { "source": "/about", "destination": "/#me", "permanent": false },
+    { "source": "/about/", "destination": "/#me", "permanent": false },
+    { "source": "/resume", "destination": "/resume.pdf", "permanent": false },
+    { "source": "/resume/", "destination": "/resume.pdf", "permanent": false },
+    { "source": "/shots", "destination": "/#works", "permanent": false },
+    { "source": "/shots/", "destination": "/#works", "permanent": false }
+  ]
+}
