@@ -150,3 +150,9 @@ img, video { max-width: 100%; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .case { scroll-behavior: auto; }
 }
+
+/* big, evenly sized screen sets (Pocketplus+ designs) */
+.wide-fig { margin: 24px 0 0; width: min(1100px, calc(100vw - max(340px, 50vw - 330px) - 48px)); display: flex; flex-direction: column; gap: 14px; }
+.wide-fig img { display: block; width: 100%; height: auto; border-radius: 20px; background: #EFEADD; }
+.wide-fig figcaption { font-size: 14px; line-height: 1.5; color: var(--grey); text-align: center; }
+@media (max-width: 1180px) { .wide-fig { width: 100%; } }
