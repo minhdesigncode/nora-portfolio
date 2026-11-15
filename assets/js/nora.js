@@ -140,3 +140,12 @@
   }, { threshold: 0.45 });
   io.observe(sec);
 })();
+
+// Hero photo flips to fun facts: hover on desktop, tap or Enter/Space anywhere
+(function () {
+  var card = document.querySelector('.photo .flip');
+  if (!card) return;
+  function toggle() { var on = card.classList.toggle('is-flipped'); card.setAttribute('aria-pressed', on ? 'true' : 'false'); }
+  card.addEventListener('click', function () { if (!window.matchMedia('(hover: hover)').matches) toggle(); });
+  card.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); } });
+})();
