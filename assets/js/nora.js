@@ -149,3 +149,26 @@
   card.addEventListener('click', function () { if (!window.matchMedia('(hover: hover)').matches) toggle(); });
   card.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); } });
 })();
+
+// Analytics events: resume clicks, email clicks, finished case studies
+(function () {
+  function track(name, params) { if (typeof gtag === 'function') gtag('event', name, params || {}); }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href]');
+    if (!a) return;
+    var href = a.getAttribute('href') || '';
+    var where = { link_text: (a.textContent || '').trim().slice(0, 60), page: location.pathname };
+    if (/resume/i.test(href) && /\.pdf$|\/resume\/?$/i.test(href)) track('resume_click', where);
+    else if (href.indexOf('mailto:') === 0) track('email_click', where);
+  });
+  var end = document.querySelector('.case-end');
+  if (end && 'IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (es) {
+      if (es.some(function (x) { return x.isIntersecting; })) {
+        track('case_study_complete', { case_study: location.pathname.replace(/\//g, '') || 'home' });
+        io.disconnect();
+      }
+    }, { threshold: 0.4 });
+    io.observe(end);
+  }
+})();
