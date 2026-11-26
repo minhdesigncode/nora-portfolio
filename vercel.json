@@ -1,11 +1,60 @@
 {
   "cleanUrls": true,
   "redirects": [
-    { "source": "/about", "destination": "/#me", "permanent": false },
-    { "source": "/about/", "destination": "/#me", "permanent": false },
-    { "source": "/resume", "destination": "/resume.pdf", "permanent": false },
-    { "source": "/resume/", "destination": "/resume.pdf", "permanent": false },
-    { "source": "/shots", "destination": "/#works", "permanent": false },
-    { "source": "/shots/", "destination": "/#works", "permanent": false }
+    {
+      "source": "/about",
+      "destination": "/#me",
+      "permanent": false
+    },
+    {
+      "source": "/about/",
+      "destination": "/#me",
+      "permanent": false
+    },
+    {
+      "source": "/resume",
+      "destination": "/resume.pdf",
+      "permanent": false
+    },
+    {
+      "source": "/resume/",
+      "destination": "/resume.pdf",
+      "permanent": false
+    },
+    {
+      "source": "/shots",
+      "destination": "/#works",
+      "permanent": false
+    },
+    {
+      "source": "/shots/",
+      "destination": "/#works",
+      "permanent": false
+    },
+    {
+      "source": "/medscore",
+      "destination": "/healthcare/",
+      "permanent": false
+    },
+    {
+      "source": "/medscore/",
+      "destination": "/healthcare/",
+      "permanent": false
+    },
+    {
+      "source": "/heathcare",
+      "destination": "/healthcare/",
+      "permanent": false
+    },
+    {
+      "source": "/heathcare/",
+      "destination": "/healthcare/",
+      "permanent": false
+    },
+    {
+      "source": "/medscore/healthcare-case-study.pdf",
+      "destination": "/healthcare/healthcare-case-study.pdf",
+      "permanent": false
+    }
   ]
 }
