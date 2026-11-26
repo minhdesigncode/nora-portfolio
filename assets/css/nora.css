@@ -319,3 +319,5 @@ html.loading .photo * { animation-play-state: paused; }
   .quick ul { gap: 10px; }
   .quick span { display: none; }
 }
+
+@media (max-width: 860px) { .g5, .g4 { grid-template-columns: 1fr 1fr !important; } }
